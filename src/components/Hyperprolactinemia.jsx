@@ -4,7 +4,7 @@ import { getInputType } from "../utils/helpers.js";
 
 export function HyperprolactinemiaForm() {
   return (
-    <form className="clinical-form">
+    <form className="clinical-form" onSubmit={(e) => { e.preventDefault(); alert("Record submitted successfully!"); }}>
       <section className="form-section">
         <h2>Patient Details</h2>
         <div className="form-grid">
@@ -128,6 +128,14 @@ export function HyperprolactinemiaForm() {
           </table>
         </div>
       </section>
+      <div className="form-actions" style={{ display: "flex", gap: "12px", justifyContent: "flex-end", marginTop: "24px" }}>
+        <button type="reset" className="sign-out-btn" style={{ padding: "10px 20px" }}>
+          Reset Form
+        </button>
+        <button type="submit" className="auth-submit-btn" style={{ margin: 0, padding: "10px 24px" }}>
+          Submit Record
+        </button>
+      </div>
     </form>
   );
 }
@@ -154,7 +162,7 @@ export function HyperprolactinemiaDashboard({ templates, onSelect, onBack }) {
           <select id="hyperprolactinemia-template-select" value={choice} onChange={(event) => setChoice(event.target.value)}>
             {templates.map((template) => (
               <option key={template.slug} value={template.slug}>
-                {template.title} - {template.format}
+                {template.title}
               </option>
             ))}
           </select>
@@ -175,7 +183,6 @@ export function HyperprolactinemiaDashboard({ templates, onSelect, onBack }) {
             <span className="card-icon">
               <FileText aria-hidden="true" />
             </span>
-            <span className="format-pill">{template.format}</span>
             <span className="card-title">{template.title}</span>
             <span className="card-copy">{template.group}</span>
             <span className="card-source">{template.source}</span>
@@ -205,8 +212,8 @@ export function HyperprolactinemiaTemplatePage({ template, onBack }) {
 
       <div className="document-summary">
         <article>
-          <span>Format</span>
-          <strong>{template.format}</strong>
+          <span>Type</span>
+          <strong>Clinical Template</strong>
         </article>
         <article>
           <span>Category</span>

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { FolderOpen, Search, FileText, ChevronRight } from "lucide-react";
 
-export default function Dashboard({ options, onSelect }) {
+export default function Dashboard({ options, onSelect, user, onLogout }) {
   const [query, setQuery] = useState("");
   const [choice, setChoice] = useState("diet-charts");
 
@@ -18,10 +18,23 @@ export default function Dashboard({ options, onSelect }) {
     <section className="dashboard-shell">
       <header className="app-header">
         <div>
-          <p className="eyebrow">Jaya Fertility</p>
+          <p className="eyebrow">Jaya Fertility Centre</p>
           <h1>Available Options</h1>
         </div>
-        <FolderOpen aria-hidden="true" />
+        {user && (
+          <div style={{ display: "flex", alignItems: "center", gap: "16px" }} className="animate-fade-in">
+            <div className="user-profile-status">
+              <span className="profile-avatar">{user.name.charAt(0)}</span>
+              <div className="profile-info">
+                <span className="profile-name">{user.name}</span>
+                <span className="profile-role">{user.role}</span>
+              </div>
+            </div>
+            <button type="button" className="sign-out-btn" onClick={onLogout}>
+              Sign Out
+            </button>
+          </div>
+        )}
       </header>
 
       <div className="selector-band">
@@ -55,11 +68,11 @@ export default function Dashboard({ options, onSelect }) {
           <button
             type="button"
             key={option.slug}
-            className={["diet-charts", "embryology-witness-and-pdf-formats", "hyperprolactinemia-bundle", "investigations", "prescriptions", "proformas"].includes(option.slug) ? "option-row active" : "option-row"}
+            className="option-row active"
             onClick={() => onSelect(option.slug)}
           >
             <span className="option-icon">
-              {["diet-charts", "embryology-witness-and-pdf-formats", "hyperprolactinemia-bundle", "investigations", "prescriptions", "proformas"].includes(option.slug) ? <FileText aria-hidden="true" /> : <FolderOpen aria-hidden="true" />}
+              <FileText aria-hidden="true" />
             </span>
             <span className="option-title">{option.title}</span>
             <span className="option-status">{option.status}</span>

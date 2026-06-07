@@ -360,3 +360,417 @@ export function getProformaForm(template) {
     ],
   };
 }
+
+export function getScanForm(template) {
+  if (template.slug === "scan-complete-pelvic") {
+    return {
+      intro: "Baseline pelvic ultrasonography form covering uterus, endometrium, myometrial lesions, Doppler, endometriosis, adenomyosis, adnexa, ovaries, cavity, ostia, Mullerian anomaly, and final report.",
+      headerFields: ["Name", "Age", "MRD", "Route", "LMP", "Frequency of Probe", "Day of Cycle"],
+      signatureFields: ["Sonologist / Doctor Signature", "Date", "Final Report By"],
+      sections: [
+        { title: "Uterus and Endometrium", fields: ["Orientation", "ET mm", "Type of Endometrium", "Echogenicity of Endometrium", "Sub-endometrial Echogenic Lines", "Endo-Myometrial Junctional Zone", "Intracavitary Fluid", "Serosa", "Shadowing", "Cysts", "Hyper-echogenic Islands"], type: "fields" },
+        { title: "Lesions Involving Endometrium", fields: ["Echogenicity", "Outline of Lesion", "Localized / Diffuse", "Polyps Present / Absent", "Size", "Location", "Blood Supply", "RI of Blood Supply"], type: "fields" },
+        { title: "Myometrial Lesions", columns: ["No.", "Site", "Size in cms", "Outer Lesion Free Margin", "Inner Lesion Free Margin", "Myometrial Penetration", "Extent", "Shape", "Blood Supply", "Remarks / Type"], rows: 6, type: "table" },
+        { title: "Uterine Artery Doppler", columns: ["Side", "PI", "RI", "S/D"], rows: 2, type: "table" },
+        { title: "Endometriosis / Adenomyosis", items: ["Adenomyosis", "Endometrioma", "Hydrosalpinx", "Deep Disease - Anterior", "Deep Disease - Posterior", "Sliding Sign - Bladder / Uterus", "Sliding Sign - Cervix / Rectum", "Sliding Sign - Uterus / Bowel", "Sliding Sign - B/L Ovaries", "Pain During Examination", "Diffuse Adenomyosis", "Focal Adenomyosis", "Adenomyoma"], type: "checks" },
+        { title: "Adnexa and Ovaries", fields: ["Right Ovary Size", "Left Ovary Size", "Right Ovary Volume", "Left Ovary Volume", "Right AFC", "Left AFC", "Dominant Follicle", "Gross Lesions", "Cervical Glands"], type: "fields" },
+        { title: "Ovarian Lesion Checklist", items: ["No Lesions", "Functional Cysts", "Clear Cysts", "Cysts with Septations", "Cysts with Echogenicity", "Hemorrhagic Cysts", "Solid Cysts", "Papillary Projections", "Calcifications", "Nodularity", "Colour Flow"], type: "checks" },
+        { title: "Cavity / Mullerian Anomaly", fields: ["Cavity Normal / Abnormal", "Endomyometrial Junction", "Right Ostia", "Left Ostia", "Endocavity Lesion", "External Contour", "Medial Endometrial Shape", "Endometrial Tip-Pit Distance", "Fundus Endometrial Tip Distance", "Internal Indentation Angle", "Mullerian Anomaly Type", "Final Report"], type: "fields" },
+      ],
+    };
+  }
+
+  if (template.slug === "scan-early-pregnancy") {
+    return {
+      intro: "Early pregnancy scan template with conception type, sac details, fetal pole, cardiac activity, adnexa, AGA, EDD, and impression.",
+      headerFields: ["Patient Name", "Patient Age", "Patient MRID", "Spouse Name", "Spouse Age", "Spouse MRID", "LMP", "Cycles", "Ovulated on Day", "Type of Conception", "LMP for Clinical Use"],
+      signatureFields: ["Doctor Signature", "Date"],
+      sections: [
+        { title: "Conception Details", items: ["Timed Cycle", "Ovulation Induction with Timed Cycle", "Ovulation Induction with IUI", "Super Ovulation with Timed Cycle", "Super Ovulation with IUI", "IVF / ICSI Fresh", "IVF / ICSI Frozen", "Stage Day 3", "Stage Day 5"], type: "checks" },
+        { title: "Sac 1", fields: ["Size of Sac", "AGA with Sac", "Location of Sac", "Yolk Sac", "Size of Yolk Sac", "Fetal Pole", "Crown Rump Length", "AGA with CRL", "Cardiac Activity", "Chorio-Decidual Reaction", "Additional Features"], type: "fields" },
+        { title: "Sac 2", fields: ["Applicable / Not Applicable", "Size of Sac", "AGA with Sac", "Location of Sac", "Yolk Sac", "Size of Yolk Sac", "Fetal Pole", "Crown Rump Length", "AGA with CRL", "Cardiac Activity", "Chorio-Decidual Reaction", "Additional Features"], type: "fields" },
+        { title: "Uterus / Adnexa / Impression", fields: ["Uterus", "Myometrium", "Right Adnexa", "Left Adnexa", "Corpus Luteum", "AGA with LMP", "AGA with Scan", "EDD with LMP", "EDD with USG", "Impression"], type: "fields" },
+      ],
+    };
+  }
+
+  if (template.slug === "scan-follicular-study") {
+    return {
+      intro: "Follicular study template with cycle plan, medicines, serial follicular monitoring, post-trigger scan, medication summary, final treatment plan, and cycle outcome.",
+      headerFields: ["Name", "LMP", "Menstrual Cycle Number", "Day 2 Cysts", "Plan", "Medicines Taken"],
+      signatureFields: ["Doctor Signature", "Date"],
+      sections: [
+        { title: "Medicines", items: ["Letrozole 5 mg OD x 5 days", "Step-up Regimen", "Clomiphene Citrate 100 mg x 5 days", "Inj. HMG 75 mg", "Other"], type: "checks" },
+        { title: "Follicular Monitoring", columns: ["Date", "Day of Cycle", "Right Ovary", "Left Ovary", "Endometrium", "Remarks / Decision"], rows: 10, type: "table" },
+        { title: "Post Trigger Scan", fields: ["Orientation of Uterus", "UCL cm", "Cervix cm", "Free Fluid", "RI", "PSV", "VI", "FI", "FV", "Visible Cumulus", "Vascular Network"], type: "fields" },
+        { title: "Cycle Closure", fields: ["Total Medication Taken", "Final Treatment Planned", "Outcome of Cycle"], type: "fields" },
+      ],
+    };
+  }
+
+  return {
+    intro: "Ovarian cyst work-up template with GI-RADS category, benign and malignant features, menopausal status, USG score, CA-125, and final impression.",
+    headerFields: ["Name", "Age", "MRD", "Date", "3D Pelvic USG", "GI-RADS"],
+    signatureFields: ["Doctor Signature", "Date"],
+    sections: [
+      { title: "GI-RADS Category", items: ["1 - Definitive Benign", "2 - Very Probably Benign", "3 - Probably Benign", "4 - Probably Malignant", "5 - Very Probably Malignant"], type: "checks" },
+      { title: "Benign Features", items: ["B1 Unilocular", "B2 Solid Component < 7mm", "B3 Acoustic Shadows", "B4 Smooth Multilocular Tumor < 100mm", "B5 No Doppler Blood Flow"], type: "checks" },
+      { title: "Malignant Features", items: ["M1 Irregular Solid Tumor", "M2 Ascites", "M3 At Least 4 Papillary Structures", "M4 Smooth Multilocular Tumor > 100mm", "M5 High Doppler Blood Flow"], type: "checks" },
+      { title: "Scoring", fields: ["Menopausal Status", "Menopausal Status Score", "Bilaterality", "Ascites", "Metastasis", "Multilocular", "Solid Areas", "USG Feature Score", "CA-125 Absolute Value", "Patient Score", "Final Impression"], type: "fields" },
+    ],
+  };
+}
+
+export function getConsentForm(template) {
+  const source = template.source.toLowerCase();
+  
+  let declaration = "We, the undersigned couple, hereby consent to the clinical procedure of IVF / ICSI and related laboratory protocols. We have been fully briefed on the processes, success rates, costs, and risks associated, including ovarian hyperstimulation syndrome (OHSS), multiple pregnancies, and procedural complications.";
+  
+  if (source.includes("frozen embryo")) {
+    declaration = "We hereby request and consent to the thawing and transfer of our frozen embryos. We have been explained the survival rate of embryos post-thaw and the expected clinical outcomes.";
+  } else if (source.includes("freezing embryos")) {
+    declaration = "We hereby request and consent to the cryopreservation and long-term storage of our embryos. We agree to the storage fee schedule and understand the policies regarding disposal, donation, or release of embryos.";
+  } else if (source.includes("oocyte retrieval")) {
+    declaration = "I hereby consent to the surgical procedure of transvaginal oocyte retrieval under anesthesia. The risks including internal bleeding, infection, and bowel or bladder injury have been explained to me.";
+  } else if (source.includes("tesa") || source.includes("pesa")) {
+    declaration = "We hereby consent to the surgical sperm retrieval procedure (TESA/PESA/Micro-TESE) for the male partner. We understand the surgical risks and that retrieval of viable sperm cannot be guaranteed.";
+  } else if (source.includes("donor sperm")) {
+    declaration = "We hereby request and consent to the use of donor sperm from a licensed semen bank for our treatment cycle. We understand the confidentiality terms and that we will be the legal parents of any child born.";
+  } else if (source.includes("donor oocyte") || source.includes("oocyte donor")) {
+    declaration = "We hereby consent to the use of donor oocytes in our ICSI treatment. The medical screening of the donor, anonymous nature of the program, and legal custody of the offspring have been explained and agreed to.";
+  } else if (source.includes("iui")) {
+    declaration = "We hereby consent to the procedure of intrauterine insemination (IUI). We understand the procedure details, the potential need for ovarian stimulation, and the risks of multiple gestation.";
+  }
+
+  return {
+    title: template.title,
+    intro: `Standard print-ready clinical consent form for ${template.title}.`,
+    patientFields: ["Wife Name", "Wife Age", "Husband Name", "Husband Age", "Registration No.", "Date"],
+    declaration,
+    witnessRequired: true,
+  };
+}
+
+export function getJayaOpForm(template) {
+  const slug = template.slug;
+
+  if (slug === "op-follow-up-diary") {
+    return {
+      title: "Patient Follow-Up Diary",
+      type: "table",
+      intro: "Follicular scans and medication follow-up diary.",
+      fields: ["Patient Name", "MRD No.", "Consultant"],
+      tableColumns: ["Date", "Day of Cycle", "Endometrium (mm)", "Right Ovary Follicles", "Left Ovary Follicles", "Medication Prescribed", "Remarks"],
+      rows: 10,
+    };
+  }
+
+  if (slug === "op-appointment-diary") {
+    return {
+      title: "Appointment Diary",
+      type: "table",
+      intro: "Clinical daily appointments and attendance log.",
+      fields: ["Date", "Checked By"],
+      tableColumns: ["Time", "Patient Name", "Reg No.", "Contact Number", "Consultant", "Purpose of Visit", "Status"],
+      rows: 12,
+    };
+  }
+
+  if (slug === "op-instructions") {
+    return {
+      title: "Instructions to Patients",
+      type: "checks",
+      intro: "Standard lifestyle and medical instructions for fertility patients.",
+      fields: ["Patient Name", "Date"],
+      items: [
+        "Take all hormonal medications and vitamins strictly on schedule.",
+        "Maintain optimal hydration by drinking 2.5 to 3 liters of water daily.",
+        "Avoid any strenuous workouts, heavy lifting, or high-impact activities.",
+        "Report any signs of severe abdominal pain, vomiting, or breathing difficulty immediately.",
+        "Eat fresh, home-cooked meals; avoid outside street food and carbonated drinks.",
+        "Ensure you attend all scheduled follicular tracking scans.",
+      ],
+    };
+  }
+
+  if (slug === "op-waiting-slip") {
+    return {
+      title: "Waiting Time Slip",
+      type: "fields",
+      intro: "Patient check-in waiting slip.",
+      fields: ["Token Number", "Patient Name", "MRD No.", "Check-in Time", "Department / Cabin", "Assigned Doctor"],
+    };
+  }
+
+  if (slug === "op-register" || slug === "op-scan-register") {
+    return {
+      title: template.title,
+      type: "table",
+      intro: `Daily registry log for ${template.title}.`,
+      fields: ["Month / Year", "Log Sheet Page"],
+      tableColumns: ["Date", "Token No.", "Patient Name", "Age / Sex", "Reg No.", "Consultant", "Service Rendered", "Charge (INR)", "Signature"],
+      rows: 10,
+    };
+  }
+
+  if (slug.startsWith("sop-")) {
+    return {
+      title: template.title,
+      type: "sop",
+      intro: `Standard Operating Procedure (SOP) documentation.`,
+      fields: ["Doc Ref Number", "Effective Date", "Version Number", "Review Frequency", "Author Name", "Approver Sign"],
+      sections: [
+        { title: "1. Purpose", text: "To document the standardized protocol for the clinical procedure, ensuring safety, consistency, and compliance." },
+        { title: "2. Scope", text: "Applies to all clinical, laboratory, and nursing staff performing this procedure at Jaya Fertility." },
+        { title: "3. Prerequisites & Equipment", text: "Sterile procedure kits, calibrated heating blocks, carbon dioxide incubators, sterile media lots, and personal protective equipment (PPE)." },
+        { title: "4. Step-by-Step Procedure", text: "Verify patient double-identifiers (Name, DOB, Reg No). Prepare equipment. Follow sterile protocols. Record batch numbers. Securely store and label files/samples." },
+        { title: "5. Documentation & Quality Control", text: "Complete procedures logs. Sign off on task lists. Audit registers weekly. Report discrepancies to clinical lead." }
+      ]
+    };
+  }
+
+  return {
+    title: template.title,
+    type: "fields",
+    intro: "Quality control and clinic administration document.",
+    fields: ["Document Title", "Date", "In-Charge Staff", "Department", "Key Details", "Sign-off Signature"],
+  };
+}
+
+export function getOtherConsultantsForm(template) {
+  return {
+    title: "Dr. Jeevitha Payment Slip",
+    intro: "Consultant billing, referral slip, and payment receipt.",
+    patientFields: ["Receipt No.", "Date", "Patient Name", "Age", "Referral MRD No.", "Consulting Doctor"],
+    sections: [
+      {
+        title: "Billing Details",
+        tests: [
+          "Outpatient Consultation - Dr. Jeevitha",
+          "Specialist Gynecological Scan / TVS",
+          "Procedural Assistance Fees",
+          "Diagnostic Review & Counseling",
+          "Follow-up Consultation"
+        ]
+      }
+    ],
+    billingFields: ["Subtotal Amount (INR)", "Discount / Waiver (INR)", "Total Paid (INR)", "Mode of Payment (Cash/UPI/Card)"]
+  };
+}
+
+export function getOhssForm(template) {
+  const slug = template.slug;
+
+  if (slug === "ohss-monitoring-sheet") {
+    return {
+      title: "OHSS Daily Monitoring Sheet",
+      type: "table",
+      intro: "Clinical tracker for patients at risk of Ovarian Hyperstimulation Syndrome (OHSS).",
+      fields: ["Patient Name", "MRD No.", "OPU Date", "No. of Oocytes Retrieved", "Trigger Type"],
+      tableColumns: ["Date", "Weight (kg)", "Abdominal Girth (cm)", "Urine Output (ml/24h)", "Fluid Intake (ml/24h)", "Shortness of Breath", "Nausea / Vomiting", "Hct / PCV (%)", "Reviewed By"],
+      rows: 7,
+    };
+  }
+
+  if (slug === "ohss-intake-output") {
+    return {
+      title: "Hourly Fluid Intake-Output Log",
+      type: "table",
+      intro: "Intensive care/ward chart for fluid balance monitoring.",
+      fields: ["Patient Name", "Reg No.", "Date", "Room No."],
+      tableColumns: ["Hour / Time", "Oral Fluid Intake (ml)", "IV Fluid Infused (ml)", "Urine Output (ml)", "Vomitus / Drain (ml)", "Pulse Rate", "Blood Pressure", "Nurse Initial"],
+      rows: 12,
+    };
+  }
+
+  return {
+    title: "OHSS Prevention Prescription",
+    type: "sections",
+    intro: "Clinical preventive protocol medications checklist.",
+    sections: [
+      { title: "Patient Details", fields: ["Patient Name", "MRD No.", "Date"] },
+      { title: "Recommended Preventive Regimen", fields: ["Tab. Cabergoline 0.5 mg OD (Bedtime) - 8 Days", "Inj. Human Albumin 20% 100ml IV during OPU", "Tab. GnRH Antagonist (Cetrorelix 0.25mg) S/C", "Ensure High Protein Diet & Hydration (3L/day)", "Tab. Rantac 150 mg BD (AC) - 10 Days"] }
+    ]
+  };
+}
+
+export function getPcoForm(template) {
+  return {
+    title: "PCO Case Sheet & Metabolic Work-Up",
+    intro: "Comprehensive PCO case sheet, clinical phenotype, ultrasound metrics, and cardiovascular risk stratification.",
+    headerFields: ["Patient Name", "MRD No.", "Age", "Date", "Height (cm)", "Weight (kg)", "BMI", "Waist Girth (cm)"],
+    sections: [
+      {
+        title: "Clinical History & Symptoms",
+        items: [
+          "Oligomenorrhea / Cycle length > 35 days",
+          "Amenorrhea (> 3 months)",
+          "Hirsutism (Excessive facial/body hair)",
+          "Severe Acne",
+          "Acanthosis Nigricans (Hyperpigmentation)",
+          "Male-pattern Balding (Alopecia)",
+          "Primary Infertility / Anovulation"
+        ],
+        type: "checks"
+      },
+      {
+        title: "Ultrasonographic Parameters (TVS)",
+        fields: ["Right Ovary Volume (cc)", "Left Ovary Volume (cc)", "Right Antral Follicle Count", "Left Antral Follicle Count", "Stromal Echogenicity (Normal/Increased)", "Uterine Lining Thickness (mm)"],
+        type: "fields"
+      },
+      {
+        title: "Endocrine & Metabolic Assays",
+        fields: ["FSH (mIU/ml)", "LH (mIU/ml)", "LH / FSH Ratio", "Serum Prolactin (ng/ml)", "TSH (uIU/ml)", "Fasting Insulin (uIU/ml)", "HbA1c (%)", "Fasting Blood Sugar (mg/dl)", "Post-Prandial Blood Sugar (mg/dl)"],
+        type: "fields"
+      },
+      {
+        title: "OSA Assessment (STOP-BANG Score)",
+        items: [
+          "S - Snoring: Do you snore loudly?",
+          "T - Tiredness: Do you feel tired/sleepy during the day?",
+          "O - Observed: Has anyone observed you stop breathing in sleep?",
+          "P - Pressure: Do you have high blood pressure?",
+          "B - BMI: Is BMI greater than 35?",
+          "A - Age: Is age over 50 years?",
+          "N - Neck: Neck circumference > 40 cm?",
+          "G - Gender: Is the patient Male?"
+        ],
+        type: "checks"
+      }
+    ],
+    signatureFields: ["Clinician Signature", "Review Date"]
+  };
+}
+
+export function getPharmacyForm(template) {
+  const slug = template.slug;
+
+  if (slug === "pharmacy-temp-checklist") {
+    return {
+      title: "Daily Refrigerator Temperature Log",
+      type: "table",
+      intro: "Pharmacy cold-chain log. Target: 2.0°C to 8.0°C.",
+      fields: ["Month & Year", "Refrigerator ID / Room Name", "Reviewed By Chemist"],
+      tableColumns: ["Day", "Morning Temp (°C)", "Morning Sign", "Evening Temp (°C)", "Evening Sign", "Action Taken if Out-of-Range"],
+      rows: 15,
+    };
+  }
+
+  if (slug === "pharmacy-drug-accepting-register") {
+    return {
+      title: "Drug Accepting & Audit Register",
+      type: "table",
+      intro: "Medications receipt, patient verification, and dispensing auditor log.",
+      fields: ["Month / Year", "Chemist In-Charge"],
+      tableColumns: ["Date", "Patient Name", "Reg No.", "Drug Name / Brand", "Batch Number", "Expiry Date", "Qty Issued", "Patient Verification Sign"],
+      rows: 10,
+    };
+  }
+
+  return {
+    title: template.title,
+    type: "fields",
+    intro: "Pharmacy waiver and patient undertaking form.",
+    fields: ["Patient Name", "Spouse Name", "MRD No.", "Date", "Medications Dispensed List", "Agreement Signature of Patient", "Pharmacist Signature"],
+  };
+}
+
+export function getProgesteroneForm(template) {
+  return {
+    title: "Progesterone IUD Insertion Protocol",
+    intro: "Emily / Mirena IUD insertion procedure logs, checks, and patient instructions.",
+    headerFields: ["Patient Name", "MRD No.", "Date of Insertion", "IUD Type", "Batch No.", "Expiry Date"],
+    sections: [
+      {
+        title: "Pre-requisite Checklist",
+        items: [
+          "Urine Pregnancy Test: Negative",
+          "Pelvic Examination done",
+          "Patient Informed Consent signed",
+          "Vaginal Swab / Pap Smear reviewed",
+          "No active pelvic infection"
+        ],
+        type: "checks"
+      },
+      {
+        title: "Procedure Log",
+        fields: ["Uterine Sound Depth (cm)", "Speculum Examination Findings", "Ease of Insertion (Easy/Moderate/Difficult)", "Post-insertion Scan confirmation", "Threads trimmed to (cm)", "Anesthesia / Block used"],
+        type: "fields"
+      },
+      {
+        title: "Instructions to Patient",
+        items: [
+          "Expect mild cramping and spotting for a few days.",
+          "Do not insert anything in the vagina (tampons, intercourse) for 48 hours.",
+          "Check the presence of threads monthly after periods.",
+          "Contact the hospital if you experience fever, foul discharge, or severe pain."
+        ],
+        type: "checks"
+      }
+    ],
+    signatureFields: ["Gynaecologist Signature", "Date"]
+  };
+}
+
+export function getReferralForm(template) {
+  return {
+    title: template.title,
+    intro: "Standard medical referral letter template.",
+    patientFields: ["Referring Doctor", "Referral Date", "To Doctor Name", "Specialty / Hospital", "Patient Name", "Age / Sex", "Reg No.", "Primary Diagnosis", "Reason for Referral"],
+    letterBody: "Dear Doctor,\n\nReferring the above-mentioned patient who is undergoing reproductive treatment at our centre. Kindly evaluate the patient for specialized management/opinion and share your findings.\n\nThank you,\nDr. Priyanka Chevuturi"
+  };
+}
+
+export function getSsgForm(template) {
+  return {
+    title: "Saline Salpingography (SSG) Note",
+    intro: "SSG procedure logging sheet, uterine cavity assessment, and tubal patency evaluation.",
+    headerFields: ["Patient Name", "Age", "MRD No.", "Date of Procedure", "LMP", "Day of Cycle"],
+    sections: [
+      {
+        title: "SSG Protocol Logs",
+        fields: ["Speculum / Tenaculum Used", "Catheter Size", "Volume of Saline Infused (ml)", "Ease of Instillation", "Pain Score (1-10)", "Uterine Cavity Morphology (Normal/Septum/Arcuate)"],
+        type: "fields"
+      },
+      {
+        title: "Tubal Patency Findings",
+        fields: ["Right Tubal Spill (Patent/Blocked/Spasmodic)", "Left Tubal Spill (Patent/Blocked/Spasmodic)", "Pelvic Fluid Collection (Normal/Deficient)", "Clinical Impression", "Post-Procedure Medications", "Follow-up Advice"],
+        type: "fields"
+      }
+    ],
+    signatureFields: ["Surgeon Signature", "Witness", "Date"]
+  };
+}
+
+export function getSummaryForm(template) {
+  const slug = template.slug;
+
+  if (slug.includes("freezing")) {
+    return {
+      title: template.title,
+      type: "table",
+      intro: "Laboratory report summary of frozen gametes/embryos.",
+      fields: ["Patient Name", "Wife MRD", "Husband MRD", "Date of Freeze", "Embryologist Signature"],
+      tableColumns: ["Straw No.", "Number Frozen", "Freeze Stage / Day", "Quality Grade", "Cane / Goblet Color", "Canister Location", "Tank No.", "Thaw Date / Remarks"],
+      rows: 6,
+    };
+  }
+
+  if (slug === "summary-iui") {
+    return {
+      title: "IUI Procedure Summary",
+      type: "table",
+      intro: "Cycle summary and laboratory statistics for IUI cycle.",
+      fields: ["Patient Name", "Reg No.", "Wife Name", "Husband Name"],
+      tableColumns: ["Cycle No.", "Date", "Follicles (R)", "Follicles (L)", "Endo (mm)", "Semen Vol (ml)", "Post-wash Count (M/ml)", "Motility (%)", "Doctor", "Result"],
+      rows: 6,
+    };
+  }
+
+  return {
+    title: template.title,
+    type: "fields",
+    intro: "General patient summary report.",
+    fields: ["Patient Name", "MRD No.", "Date", "Clinical Indications", "Diagnostic Results Summary", "Treatments Conducted", "Prognosis & Recommendations", "Primary Consultant Signature"],
+  };
+}

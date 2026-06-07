@@ -6,24 +6,24 @@ import {
 } from "lucide-react";
 
 export const availableOptions = [
-  { slug: "consents-templates", title: "Consents Templates", status: "Folder option" },
+  { slug: "consents-templates", title: "Consents Templates", status: "17 templates ready" },
   { slug: "diet-charts", title: "Diet Charts", status: "4 templates ready" },
   { slug: "embryology-witness-and-pdf-formats", title: "Embryology Witness and PDF Formats", status: "18 templates ready" },
   { slug: "hyperprolactinemia-bundle", title: "Hyperprolactinemia Bundle", status: "1 template ready" },
   { slug: "investigations", title: "Investigations", status: "4 templates ready" },
-  { slug: "jaya-op-and-quick-scan-pdf-formats", title: "Jaya OP and Quick Scan PDF Formats", status: "Folder option" },
-  { slug: "jaya-other-consultants-folder", title: "Jaya Other Consultants Folder", status: "Folder option" },
-  { slug: "ohss-bundle", title: "OHSS Bundle", status: "Folder option" },
-  { slug: "pco-case-sheet", title: "PCO Case Sheet", status: "Folder option" },
-  { slug: "pharmacy-work-and-pdf-formats", title: "Pharmacy Work and PDF Formats", status: "Folder option" },
+  { slug: "jaya-op-and-quick-scan-pdf-formats", title: "Jaya OP and Quality Control", status: "13 templates ready" },
+  { slug: "jaya-other-consultants-folder", title: "Jaya Other Consultants", status: "2 templates ready" },
+  { slug: "ohss-bundle", title: "OHSS Bundle", status: "3 templates ready" },
+  { slug: "pco-case-sheet", title: "PCO Case Sheet", status: "1 case sheet" },
+  { slug: "pharmacy-work-and-pdf-formats", title: "Pharmacy Templates", status: "4 templates ready" },
   { slug: "prescriptions", title: "Prescriptions", status: "5 templates ready" },
   { slug: "proformas", title: "Proformas", status: "8 templates ready" },
-  { slug: "progesterone-iud-insertion", title: "Progesterone IUD Insertion", status: "Folder option" },
-  { slug: "referrals", title: "Referrals", status: "Folder option" },
-  { slug: "scan-template", title: "Scan Template", status: "Folder option" },
-  { slug: "ssg-bundle", title: "SSG Bundle", status: "Folder option" },
-  { slug: "summary", title: "Summary", status: "Folder option" },
-  { slug: "testimonial-folder", title: "Testimonial Folder", status: "Folder option" },
+  { slug: "progesterone-iud-insertion", title: "Progesterone IUD Insertion", status: "1 checklist" },
+  { slug: "referrals", title: "Referrals", status: "4 referral forms" },
+  { slug: "scan-template", title: "Scan Template", status: "4 templates ready" },
+  { slug: "ssg-bundle", title: "SSG Bundle", status: "3 forms ready" },
+  { slug: "summary", title: "Summary", status: "6 summary reports" },
+  { slug: "testimonial-folder", title: "Testimonial Gallery", status: "Text & Gallery" },
 ];
 
 export const hyperprolactinemiaTemplates = [
@@ -60,6 +60,13 @@ export const proformaTemplates = [
   { slug: "proformas-recipient-couple-screening", title: "Recipient Couple Screening Sheet", format: "DOCX", source: "RECIPIENT COUPLE SCREENING SHEET.docx", group: "Screening" },
   { slug: "proformas-stimulation-checklist", title: "Stimulation Checklist and Scans Summary", format: "DOCX", source: "STIMULATION CHECKLIST AND SCANS SUMMARY.docx", group: "IVF Stimulation" },
   { slug: "proformas-ot-procedure", title: "Template for OT Procedure", format: "DOCX", source: "TEMPLATE FOR OT PROCEDURE.docx", group: "OT Procedure" },
+];
+
+export const scanTemplates = [
+  { slug: "scan-complete-pelvic", title: "Complete Pelvic Scan", format: "DOCX", source: "COMPLETE PELVIC SCAN.docx", group: "Pelvic USG" },
+  { slug: "scan-early-pregnancy", title: "Early Pregnancy Scan Template", format: "DOCX", source: "EARLY PREGNANCY SCAN TEMPLATE.docx", group: "Pregnancy Scan" },
+  { slug: "scan-follicular-study", title: "Follicular Study", format: "DOCX", source: "FOLLICULAR STUDY.docx", group: "Follicular Study" },
+  { slug: "scan-ovarian-cyst-workup", title: "Ovarian Cyst Work-up", format: "DOCX", source: "OVARIAN CYST WORK-UP.docx", group: "Ovarian Cyst" },
 ];
 
 export const embryologyTemplates = [
@@ -278,4 +285,94 @@ export const dietTemplates = [
       { category: "Additionally", items: ["Alcohol", "Caffeine", "Gluten"] },
     ],
   },
+];
+
+export const consentTemplates = [
+  { slug: "consents-icsi-couple", title: "Consent Form by Couple", format: "DOCX", source: "Consent form  by couple.docx", group: "IVF Consent" },
+  { slug: "consents-frozen-transfer", title: "Consent for Frozen Embryo Transfer", format: "DOCX", source: "consent for frozen embryo transfer.docx", group: "Embryo Transfer" },
+  { slug: "consents-freezing-embryos", title: "Consent for Freezing Embryos", format: "DOCX", source: "consent for freezing embryos.docx", group: "Freezing" },
+  { slug: "consents-fresh-transfer", title: "Consent for Fresh Embryo Transfer", format: "DOCX", source: "consent for fresh embryo transfer.docx", group: "Embryo Transfer" },
+  { slug: "consents-oocyte-retrieval", title: "Consent for Oocyte Retrieval", format: "DOCX", source: "consent for oocyte retrieval.docx", group: "Procedure" },
+  { slug: "consents-multiple-transfer", title: "Consent for Transfer of Multiple Embryos", format: "DOCX", source: "consent for transfer of multiple embryos.docx", group: "Embryo Transfer" },
+  { slug: "consents-freezing-oocytes", title: "Consent for Freezing Oocytes", format: "DOCX", source: "consent for freezing oocytes.docx", group: "Freezing" },
+  { slug: "consents-freezing-sperms", title: "Consent for Freezing Sperms", format: "DOCX", source: "consent for freezing sperms.docx", group: "Freezing" },
+  { slug: "consents-semen-freezing-short", title: "Consent for Short Term Semen Freezing", format: "DOCX", source: "consent for short term semen freezing.docx", group: "Freezing" },
+  { slug: "consents-icsi-donor-sperm", title: "Consent for ICSI with Donor Sperm", format: "DOCX", source: "consent for icsi with donor sperm.docx", group: "Donor Related" },
+  { slug: "consents-sperm-donor", title: "Consent by Sperm Donor", format: "DOCX", source: "consent by sperm donor.docx", group: "Donor Related" },
+  { slug: "consents-oocyte-donor", title: "Consent by Oocyte Donor", format: "DOCX", source: "consent by oocyte donor.docx", group: "Donor Related" },
+  { slug: "consents-tesa-pesa", title: "Consent for TESA, PESA and Micro-TESE", format: "DOCX", source: "consent for TESA, PESA and Micro-TESE.docx", group: "Procedure" },
+  { slug: "consents-iui-husband", title: "Consent for IUI with Husband Semen", format: "DOCX", source: "consent for IUI with husband semen.docx", group: "IUI" },
+  { slug: "consents-iui-donor", title: "Consent for IUI with Donor Semen", format: "DOCX", source: "iui with donor semen.docx", group: "IUI" },
+  { slug: "consents-minor-oocyte", title: "Minor Oocyte Freezing Consent", format: "DOCX", source: "minor oocyte freezing.docx", group: "Freezing" },
+  { slug: "consents-minor-sperm", title: "Minor Sperm Freezing Consent", format: "DOCX", source: "minor sperm freezing.docx", group: "Freezing" },
+];
+
+export const jayaOpTemplates = [
+  { slug: "op-follow-up-diary", title: "Patient Follow-Up Diary", format: "DOCX", source: "PATIENT FOLLOW UP DIARY.docx", group: "Diary" },
+  { slug: "op-appointment-diary", title: "Appointment Diary", format: "DOCX", source: "APPOINTMENT DIARY.docx", group: "Diary" },
+  { slug: "op-instructions", title: "Instructions to Patients", format: "DOCX", source: "INSTRUCTIONS TO PATIENTS.docx", group: "Instructions" },
+  { slug: "op-waiting-slip", title: "Waiting Time Slip", format: "DOCX", source: "WAITING TIME SLIP.docx", group: "Slip" },
+  { slug: "op-treatment-options", title: "Treatment Options", format: "DOCX", source: "TREATMENT OPTIONS.docx", group: "Information" },
+  { slug: "op-undertaking-patient", title: "Undertaking by Patient JFC", format: "DOCX", source: "undertaking by the patient JFC.docx", group: "Undertaking" },
+  { slug: "op-register", title: "OP Register", format: "DOCX", source: "OP REGISTER.docx", group: "Register" },
+  { slug: "op-scan-register", title: "Scan Register", format: "DOCX", source: "SCAN REGISTER.docx", group: "Register" },
+  { slug: "sop-hycosy", title: "SOP - HyCoSy POP", format: "DOCX", source: "SOP FOLDER/HYCOSY POP.docx", group: "SOP" },
+  { slug: "sop-mtp", title: "SOP - Patient Visit MTP Case", format: "DOCX", source: "SOP FOLDER/PATIENT VISIT - MTP CASE.docx", group: "SOP" },
+  { slug: "sop-semen-analysis", title: "SOP - Semen Analysis SOP", format: "DOCX", source: "SOP FOLDER/SEMEN ANALYSIS SOP.docx", group: "SOP" },
+  { slug: "sop-pregnant-patient", title: "SOP - Pregnant Patient SOP", format: "DOCX", source: "SOP FOLDER/PREGNANT PATIENT SOP.docx", group: "SOP" },
+  { slug: "sop-iui", title: "SOP - IUI SOP", format: "DOCX", source: "SOP FOLDER/IUI SOP.docx", group: "SOP" },
+];
+
+export const otherConsultantsTemplates = [
+  { slug: "jeevitha-payment-slip-docx", title: "Dr. Jeevitha Payment Slip", format: "DOCX", source: "DR. JEEVITHA/PAYMENT SLIP.docx", group: "Payment Slip" },
+  { slug: "jeevitha-payment-slip-pdf", title: "Dr. Jeevitha Payment Slip (PDF Reference)", format: "PDF", source: "DR. JEEVITHA/PAYMENT SLIP.pdf", group: "Reference" },
+];
+
+export const ohssTemplates = [
+  { slug: "ohss-monitoring-sheet", title: "OHSS Monitoring Sheet", format: "DOCX", source: "OHSS MONITORING SHEET.docx", group: "Monitoring" },
+  { slug: "ohss-intake-output", title: "Intake-Output Chart", format: "DOCX", source: "INTAKE OUTPUT CHART.docx", group: "Monitoring" },
+  { slug: "ohss-prevention-prescription", title: "OHSS Prevention Prescription", format: "DOCX", source: "OHSS PREVENTION PRESCRIPTION.docx", group: "Prescription" },
+];
+
+export const pcoTemplates = [
+  { slug: "pco-case-sheet", title: "PCO Case Sheet", format: "DOCX", source: "PCO CASE SHEET.docx", group: "Case Sheet" },
+];
+
+export const pharmacyTemplates = [
+  { slug: "pharmacy-temp-checklist", title: "Temperature Checklist", format: "PDF", source: "temperature check list (2).pdf", group: "Checklist" },
+  { slug: "pharmacy-drug-accepting-register", title: "Drug Accepting Register", format: "DOCX", source: "DRUG ACCEPTING REGISTER.docx", group: "Register" },
+  { slug: "pharmacy-undertaking-couple", title: "Final Undertaking by Couple - Pharmacy", format: "PDF", source: "final undertaking by the couple - pharmacy.pdf", group: "Undertaking" },
+  { slug: "pharmacy-undertaking-patient", title: "Undertaking by Patient - Pharmacy", format: "DOCX", source: "undertaking by patient-pharmacy (1).docx", group: "Undertaking" },
+];
+
+export const progesteroneTemplates = [
+  { slug: "progesterone-iud-insertion", title: "Emily IUD Insertion", format: "DOCX", source: "emily insertion.docx", group: "Insertion" },
+];
+
+export const referralTemplates = [
+  { slug: "referral-obg-fetal-med", title: "Fetal Med NT and OBG Referral", format: "DOCX", source: "FETAL MED NT AND OBG REFERRAL.docx", group: "Referral Form" },
+  { slug: "referral-general", title: "General Referral Form", format: "DOCX", source: "GENERAL REFERRAL FORM.docx", group: "Referral Form" },
+  { slug: "referral-oncofert", title: "Oncofert Referral Form", format: "DOCX", source: "oncofert referral form.docx", group: "Referral Form" },
+  { slug: "referral-surgery", title: "Fertility Enhancing Surgery Referral Form", format: "DOCX", source: "FERTILITY ENHANCING SURGERY REFERRAL FORM.docx", group: "Referral Form" },
+];
+
+export const ssgTemplates = [
+  { slug: "ssg-report", title: "SSG Report", format: "DOCX", source: "SSG REPORT.docx", group: "Report" },
+  { slug: "ssg-consent", title: "Consent for SSG", format: "DOCX", source: "CONSENT FOR SSG.docx", group: "Consent" },
+  { slug: "ssg-note", title: "SSG Note", format: "DOCX", source: "SSG NOTE.docx", group: "Clinical Note" },
+];
+
+export const summaryTemplates = [
+  { slug: "summary-semen-freezing", title: "Semen Freezing Report", format: "DOCX", source: "SEMEN FREEZING REPORT.docx", group: "Freezing" },
+  { slug: "summary-icsi-consent", title: "ICSI Summary Consent Form", format: "DOCX", source: "icsi summary consent form.docx", group: "Consent" },
+  { slug: "summary-oocyte-freezing", title: "Oocyte Freezing Report", format: "DOCX", source: "OOCYTE FREEZING REPORT.docx", group: "Freezing" },
+  { slug: "summary-tesa-pesa", title: "Trial TESA-PESA Report", format: "DOCX", source: "TRIAL TESA-PESA REPORT.docx", group: "Report" },
+  { slug: "summary-iui", title: "IUI Summary", format: "DOCX", source: "IUI SUMMARY.docx", group: "IUI" },
+  { slug: "summary-fertility-screening", title: "Fertility Screening Report", format: "DOCX", source: "FERTILITY SCREENING REPORT.docx", group: "Screening" },
+];
+
+export const testimonialTemplates = [
+  { slug: "testimonials-text", title: "Patient Written Testimonials", format: "DOCX", source: "testimonials.docx", group: "Written" },
+  { slug: "testimonials-pictures", title: "Baby Pictures & Cards", format: "Gallery", source: "pictures/", group: "Photos" },
+  { slug: "testimonials-digital", title: "Digital Science Reviews", format: "Gallery", source: "digital sciences/", group: "Reviews" },
 ];
